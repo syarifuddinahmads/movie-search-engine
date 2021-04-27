@@ -1,0 +1,5 @@
+# proses untuk retrival recall
+- recall untuk cek kemampuan memanmpilkan dokuman
+- precision untuk cek kemampuan reject dokumen" yang kurang relevan
+
+# untuk proses pembobotan harusnya sesudah proses tokenizing, stemming selesai, intinya untuk
