@@ -3,7 +3,7 @@
 {% block content %}
     <div class="container mt-5 pt-5">
         <div class="head-discover pt-4 pb-4">
-            <form action="" method="get" enctype="multipart/form-data" id="form-filter-genre">
+            <form action="/" method="get" enctype="multipart/form-data" id="form-filter-genre">
                 <div class="row">
                     <div class="col-md-10">
                         <h4>Discover</h4>
@@ -32,7 +32,7 @@
                                 <img src="{{ d.thumbnail }}" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <div style="min-height: 55px">
-                                        <h5 class="card-title">{{ d.title+' | '+d.year }}</h5>
+                                        <h5 class="card-title">{{ d.title }} | {{ d.year }}</h5>
                                     </div>
                                     <div style="min-height: 65px;">
                                         <p class="card-text">{{ d.description[:65]+'...' }}</p>
