@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home | Movie Search Engine</title>
+    <link rel="icon" href="{{ url_for('static', filename = 'images/favicon.ico') }}" type="image/x-icon"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'slick/slick/slick.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'slick/slick/slick-theme.css') }}">
+</head>
+<body style="background-color: #fafafa;">
+
+<nav class="navbar navbar-light fixed-top navbar-fixed-top bg-white p-4">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="{{ url_for('static', filename = 'images/logo.png') }}" alt="" width="30" height="24"
+                 class="d-inline-block align-text-top">
+            Movie Search Engine
+        </a>
+        <form class="d-flex w-50">
+            <input class="form-control me-2" type="search" placeholder="Search movie..." aria-label="Search">
+            <button class="btn btn-primary w-25" type="submit"> Search</button>
+        </form>
+    </div>
+</nav>
+<div class="container">
+    {% block content %}
+    {% endblock %}
+</div>
+
+
+<script src="{{ url_for('static', filename = 'jquery/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename = 'bootstrap/js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename = 'slick/slick/slick.min.js') }}"></script>
+{% block js %}{% endblock %}
+</body>
+</html>
