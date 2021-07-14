@@ -1,17 +1,18 @@
 import random
+from collections import Counter
+
 import pandas as pd
 from operator import itemgetter
 from math import log
 from nltk import word_tokenize, sent_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
-import pandas as pd
 
 
 class Home():
     @classmethod
     def get_random_data_discover(self, request):
-        dataframe = pd.read_csv('data_film.csv')
+        dataframe = pd.read_csv('data_film_fix.csv')
         # cek genre request
         if request is None:
             print('Masuk None')
@@ -37,7 +38,7 @@ class Home():
                      'year': year}
             data.append(movie)
         # return data movies random
-        return random.sample(data, 20)
+        return random.sample(data, 30)
 
     def get_random_data_genre(*self):
         genre = pd.read_csv('genre.csv')
@@ -51,7 +52,7 @@ class Home():
         stop_words = stopwords.words('english')
         stemmer = PorterStemmer()
         i = 1
-        data = pd.read_csv('data_film.csv', sep=',')  # data real sebelum di prosesing
+        data = pd.read_csv('data_film_fix.csv', sep=',')  # data real sebelum di prosesing
         # data_after = pd.read_csv('post_processing_data_film_cleaned.csv',sep="|")
         data_after = pd.read_csv('post_processing_data_film_stemmed.csv', sep="|")
 
@@ -114,9 +115,9 @@ class Home():
         # sort document relevan
         total_weight = sorted(total_weight, key=itemgetter(1), reverse=True)
 
-        # show top 32 document relevan
+        # show top 50 document relevan
         data_movie = []
-        for i in range(0, 32):
+        for i in range(0, len(total_weight)):
             title = data['title'][total_weight[i][0]]
             description = data['description'][total_weight[i][0]]
             genre = data['genre'][total_weight[i][0]]
@@ -128,4 +129,4 @@ class Home():
             print('Item Movies = ',movie)
             data_movie.append(movie)
 
-        return data_movie
+        return data_movie[:12]

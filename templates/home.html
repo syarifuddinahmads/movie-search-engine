@@ -27,15 +27,15 @@
             {% if discover|length > 0 %}
                 <div class="row">
                     {% for d in discover %}
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <div class="card mb-4">
                                 <img src="{{ d.thumbnail }}" class="card-img-top" alt="...">
                                 <div class="card-body">
-                                    <div style="min-height: 55px">
-                                        <h5 class="card-title">{{ d.title }} | {{ d.year }}</h5>
+                                    <div style="min-height: 65px">
+                                        <h6 class="card-title">{{ d.title[:35] }} | {{ d.year }}</h6>
                                     </div>
                                     <div style="min-height: 65px;">
-                                        <p class="card-text">{{ d.description[:65]+'...' }}</p>
+                                        <small class="card-text">{{ d.description[:35]+'...' }}</small>
                                     </div>
                                     <span class="badge bg-warning text-dark">{{ d.genre }}</span>
                                 </div>
